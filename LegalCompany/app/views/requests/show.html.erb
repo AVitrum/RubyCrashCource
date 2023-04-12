@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="jumbotron">
+
+  <h1 class="display-4">
+    <%= @request.first_name %>
+    <%= @request.last_name %>
+  </h1>
+
+  <p class="lead">
+    <%= "Email: " + @request.email %> |
+    <%= "Phone: " + @request.phone %>
+  </p>
+
+  <br>
+  <br>
+
+  <p><%= @request.description %></p>
+
+  <%= link_to "Edit this request", edit_request_path(@request), class:"btn btn-outline-warning"%>
+  <%= link_to "Back to requests", requests_path, class:"btn btn-outline-secondary" %>
+  <%= button_to "Destroy this request", @request, method: :delete, class:"btn btn-outline-danger"%>
+</div>
+
+<div>
+
+</div>
