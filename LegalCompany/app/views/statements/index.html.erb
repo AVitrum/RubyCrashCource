@@ -1,0 +1,9 @@
+<h1>Statements list</h1>
+
+<% @statements.each do |statement| %>
+  <div>
+    <h2><%= statement.title %></h2>
+    <h3><%= statement.description %></h3>
+    <p><%= statement.body %></p>
+  </div>
+<% end %>
