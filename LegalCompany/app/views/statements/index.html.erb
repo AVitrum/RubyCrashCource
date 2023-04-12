@@ -5,5 +5,8 @@
     <h2><%= statement.title %></h2>
     <h3><%= statement.description %></h3>
     <p><%= statement.body %></p>
+    <% if user_signed_in? %>
+      <%= link_to "Show statement", statement %>
+    <% end %>
   </div>
 <% end %>
