@@ -1,35 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Requests</h1>
-
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Second name</th>
+      <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
       <th>Description</th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
 <tbody>
   <% @requests.each do |request| %>
+    <% if request.user == current_user %>
   <tr>
-    <td><%= request.first_name %></td>
-    <td><%= request.last_name %></td>
+    <td><%= link_to request.first_name + ' ' + request.last_name, request %></td>
     <td><%= request.email %></td>
     <td><%= request.phone %></td>
     <td><%= request.description %></td>
-    <td><%= link_to "Show", request %></td>
-    <td><%= link_to "Edit", edit_request_path(request)%></td>
-    <td>
+    <td><%= button_to 'Delete', request, method: :delete, class:"btn btn-outline-danger" %></td>
   </tr>
+    <% end %>
   <% end %>
 </tbody>
 </table>
-
 <br>
-
 <%= link_to "New request", new_request_path, class:"btn btn-primary" %>
