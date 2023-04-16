@@ -37,8 +37,14 @@
  I need advice on protecting the rights of Tuskars" %>
   </div>
   <div class="field form-group">
-    <%= form.number_field :user_id, id: :request_user_id , class:"form-control-sm", value:current_user.id, type: :hidden %>
+    <%= form.number_field :user_id, id: :request_user_id , class:"form-control-sm", type: :hidden %>
   </div>
+  <% if current_user.admin %>
+    <div class="field form-group">
+      <%= form.label :reaction, style: "display: block"%>
+      <%= form.text_field :reaction, class:"form-control", placeholder: "For Admin"  %>
+    </div>
+  <% end %>
   <br>
   <div class="field form-group">
     <%= form.submit class:"btn btn-success" %>

@@ -61,10 +61,19 @@ class RequestsController < ApplicationController
     end
   end
 
+  # def admin_user
+  #   redirect_to(root_path) unless current_user.admin?
+  # end
+
   def correct_user
-    @request = current_user.requests.find_by(id: params[:id])
-    redirect_to requests_path, notice: "Not authorized to edit this request" if @request.nil?
+    @request = Request.find(params[:id])
+    if current_user.admin? || @request.user == current_user
+      # allow edit and delete if user is admin or if the request belongs to the user
+    else
+      redirect_to requests_path, notice: "Not authorized to edit or delete this request."
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -74,6 +83,6 @@ class RequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def request_params
-      params.require(:request).permit(:first_name, :last_name, :email, :phone, :description, :user_id)
+      params.require(:request).permit(:first_name, :last_name, :email, :phone, :description, :user_id, :reaction)
     end
 end
