@@ -1,7 +1,8 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Welcome to the website of our Legal Company</h1>
-    <p class="lead">Here you can get help from qualified specialists. All you need to do is to sign up on our website and leave a request</p>
+    <p class="lead">Here you can get help from qualified specialists.
+      All you need is to sign up on our website and leave an application</p>
   </div>
 </div>
 <% unless user_signed_in? && current_user.admin %>
@@ -21,8 +22,8 @@
         <div class="col-4">
         <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">Quick creation of request</h5>
-            <p class="card-text">If you do not know where to create a request, click on this link</p>
+            <h5 class="card-title">Quick creation of application</h5>
+            <p class="card-text">If you do not know where to create an application, click on this link</p>
             <a href="#" class="card-link"><%= link_to "Create request", new_request_path%></a>
         </div>
         </div>

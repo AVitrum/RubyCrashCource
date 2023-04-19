@@ -19,9 +19,9 @@
   <br>
   <h2>Reaction</h2>
   <p><%= @request.reaction %></p>
-  <%= link_to "Edit this request", edit_request_path(@request), class:"btn btn-outline-warning"%>
-  <%= link_to "Back to requests", requests_path, class:"btn btn-outline-secondary" %>
-  <%= button_to "Destroy this request", @request, method: :delete, class:"btn btn-outline-danger"%>
+  <%= link_to "Edit this application", edit_request_path(@request), class:"btn btn-outline-warning"%>
+  <%= link_to "Back to applications", requests_path, class:"btn btn-outline-secondary" %>
+  <%= button_to "Destroy this application", @request, method: :delete, class:"btn btn-outline-danger"%>
 </div>
 
 <div>

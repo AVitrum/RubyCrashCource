@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Requests</h1>
+<h1>Applications</h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -29,5 +29,12 @@
 </table>
 <br>
 <% unless current_user.admin %>
-<%=  link_to "New request", new_request_path, class:"btn btn-primary"  %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Quick application creation</h5>
+      <p class="card-text">If you have forgotten or do not see your applications,
+        click on this button and create a new one</p>
+      <a href="#" class="card-link"><%= link_to "New application", new_request_path, class:"btn btn-primary" %></a>
+    </div>
+  </div>
 <% end %>
