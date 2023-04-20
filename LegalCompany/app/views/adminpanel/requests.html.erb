@@ -15,6 +15,7 @@
     </thead>
     <tbody>
     <% @requests.each do |request| %>
+      <% unless request.checked %>
         <tr>
           <td><%= link_to request.first_name + ' ' + request.last_name, request %></td>
           <td><%= request.email %></td>
@@ -30,13 +31,6 @@
     </tbody>
   </table>
   <br>
-  <% unless current_user.admin %>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Quick application creation</h5>
-        <p class="card-text">If you have forgotten or do not see your applications,
-          click on this button and create a new one</p>
-        <a href="#" class="card-link"><%= link_to "New application", new_request_path, class:"btn btn-primary" %></a>
-      </div>
-    </div>
+  <h1><%= link_to "Archive", adminpanel_checked_path, class: "btn btn-secondary" %></h1>
 <% end %>
+

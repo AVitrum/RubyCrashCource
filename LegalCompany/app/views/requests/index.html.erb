@@ -15,19 +15,41 @@
 <tbody>
   <% @requests.each do |request| %>
     <% if request.user == current_user || current_user.admin %>
-  <tr>
-    <td><%= link_to request.first_name + ' ' + request.last_name, request %></td>
-    <td><%= request.email %></td>
-    <td><%= request.phone %></td>
-    <td><%= request.description %></td>
-    <td><%= request.reaction %></td>
-    <td><%= button_to 'Delete', request, method: :delete, class:"btn btn-outline-danger" %></td>
-  </tr>
+      <% unless request.checked %>
+        <tr>
+          <td><%= link_to request.first_name + ' ' + request.last_name, request %></td>
+          <td><%= request.email %></td>
+          <td><%= request.phone %></td>
+          <td><%= request.description %></td>
+          <td><%= request.reaction %></td>
+          <td><%= button_to 'Delete', request, method: :delete, class:"btn btn-outline-danger" %></td>
+        </tr>
+      <% end %>
     <% end %>
   <% end %>
 </tbody>
 </table>
 <br>
+
+<h1>Old Applications</h1>
+<table class="table table-striped">
+  <tbody>
+  <% @requests.each do |request| %>
+    <% if (request.user == current_user || current_user.admin) && request.checked %>
+      <tr>
+        <td><%= link_to request.first_name + ' ' + request.last_name, request %></td>
+        <td><%= request.email %></td>
+        <td><%= request.phone %></td>
+        <td><%= request.description %></td>
+        <td><%= request.reaction %></td>
+        <td><%= button_to 'Delete', request, method: :delete, class:"btn btn-outline-danger" %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+<br>
+
 <% unless current_user.admin %>
   <div class="card" style="width: 18rem;">
     <div class="card-body">
