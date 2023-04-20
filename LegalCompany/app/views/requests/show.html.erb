@@ -20,7 +20,11 @@
   <h2>Reaction</h2>
   <p><%= @request.reaction %></p>
   <%= link_to "Edit this application", edit_request_path(@request), class:"btn btn-outline-warning"%>
-  <%= link_to "Back to applications", requests_path, class:"btn btn-outline-secondary" %>
+  <% if current_user.admin %>
+    <%= link_to "Back to applications", adminpanel_requests_path, class:"btn btn-outline-secondary" %>
+  <% else %>
+    <%= link_to "Back to applications", requests_path, class:"btn btn-outline-secondary" %>
+  <% end %>
   <%= button_to "Destroy this application", @request, method: :delete, class:"btn btn-outline-danger"%>
 </div>
 
