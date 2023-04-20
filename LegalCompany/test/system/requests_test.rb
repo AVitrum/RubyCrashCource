@@ -5,7 +5,7 @@ class RequestsTest < ApplicationSystemTestCase
     @request = requests(:one)
   end
 
-  test "visiting the index" do
+  test "visiting the requests" do
     visit requests_url
     assert_selector "h1", text: "Requests"
   end

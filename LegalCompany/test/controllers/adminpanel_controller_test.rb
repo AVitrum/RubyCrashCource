@@ -1,8 +1,8 @@
 require "test_helper"
 
-class HomeControllerTest < ActionDispatch::IntegrationTest
+class AdminpanelControllerTest < ActionDispatch::IntegrationTest
   test "should get requests" do
-    get home_index_url
+    get adminpanel_index_url
     assert_response :success
   end
 end

@@ -35249,3 +35249,2808 @@ Processing by RequestsController#index as HTML
 Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.8ms | Allocations: 6141)
 
 
+Started GET "/" for 127.0.0.1 at 2023-04-20 10:49:46 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1244)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 522)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 24795)
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 0.0ms | Allocations: 28013)
+
+
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 10:49:53 +0300
+Processing by AdminpanelController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/index.html.erb within layouts/application
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/index.html.erb:16
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/index.html.erb:17
+  Rendered adminpanel/index.html.erb within layouts/application (Duration: 30.7ms | Allocations: 17751)
+  Rendered layout layouts/application.html.erb (Duration: 30.9ms | Allocations: 17840)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 1.4ms | Allocations: 19524)
+
+
+  
+ActionView::Template::Error (undefined method `admin' for nil:NilClass):
+    14:   </thead>
+    15:   <tbody>
+    16:   <% @requests.each do |request| %>
+    17:     <% if request.user == current_user || current_user.admin %>
+    18:       <tr>
+    19:         <td><%= link_to request.first_name + ' ' + request.last_name, request %></td>
+    20:         <td><%= request.email %></td>
+  
+app/views/adminpanel/index.html.erb:17
+app/views/adminpanel/index.html.erb:16
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 10:49:58 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 711)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.0ms | Allocations: 5141)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 6415)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.0ms | Allocations: 7899)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-20 10:50:00 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "andrey.almashi@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 348ms (ActiveRecord: 0.2ms | Allocations: 3807)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 10:50:01 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1031)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 384)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2455)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms | Allocations: 2717)
+
+
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 10:50:09 +0300
+Processing by AdminpanelController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/index.html.erb within layouts/application
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/index.html.erb:17
+  Rendered adminpanel/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 4582)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 366)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 6033)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.5ms | Allocations: 6322)
+
+
+Started GET "/requests/1" for 127.0.0.1 at 2023-04-20 10:50:15 +0300
+Processing by RequestsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:73:in `set_request'
+  Rendering layout layouts/application.html.erb
+  Rendering requests/show.html.erb within layouts/application
+  Rendered requests/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 888)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.erb:10
+  Rendered home/_header.html.erb (Duration: 1.3ms | Allocations: 1154)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 3119)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.2ms | Allocations: 4997)
+
+
+Started GET "/requests/1" for 127.0.0.1 at 2023-04-20 10:50:17 +0300
+Processing by RequestsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:73:in `set_request'
+  Rendering layout layouts/application.html.erb
+  Rendering requests/show.html.erb within layouts/application
+  Rendered requests/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 541)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.erb:10
+  Rendered home/_header.html.erb (Duration: 2.0ms | Allocations: 1136)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2696)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 3459)
+
+
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 10:53:10 +0300
+Processing by AdminpanelController#index as HTML
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1626)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Request without an ID):
+  
+app/controllers/adminpanel_controller.rb:8:in `admin_user'
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 10:54:22 +0300
+Processing by AdminpanelController#index as HTML
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1589)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Request without an ID):
+  
+app/controllers/adminpanel_controller.rb:8:in `admin_user'
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 10:54:23 +0300
+Processing by AdminpanelController#index as HTML
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 516)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Request without an ID):
+  
+app/controllers/adminpanel_controller.rb:8:in `admin_user'
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 10:54:23 +0300
+Processing by AdminpanelController#index as HTML
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 515)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Request without an ID):
+  
+app/controllers/adminpanel_controller.rb:8:in `admin_user'
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 10:54:23 +0300
+Processing by AdminpanelController#index as HTML
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 515)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Request without an ID):
+  
+app/controllers/adminpanel_controller.rb:8:in `admin_user'
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 10:55:15 +0300
+Processing by AdminpanelController#index as HTML
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms | Allocations: 1588)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Request without an ID):
+  
+app/controllers/adminpanel_controller.rb:10:in `admin_user'
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 10:55:16 +0300
+Processing by AdminpanelController#index as HTML
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 515)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Request without an ID):
+  
+app/controllers/adminpanel_controller.rb:10:in `admin_user'
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 10:55:16 +0300
+Processing by AdminpanelController#index as HTML
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 515)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Request without an ID):
+  
+app/controllers/adminpanel_controller.rb:10:in `admin_user'
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 10:56:09 +0300
+Processing by AdminpanelController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/index.html.erb:1
+  [1m[36mRequest Load (0.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/index.html.erb:17
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/index.html.erb:18
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/index.html.erb:18
+  Rendered adminpanel/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 11815)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 716)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 13905)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 1.1ms | Allocations: 15430)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 10:56:13 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 8ms (ActiveRecord: 0.1ms | Allocations: 2861)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 10:56:13 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 647)
+  Rendered home/_header.html.erb (Duration: 0.1ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1901)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 2560)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 10:56:14 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 583)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2226)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3483)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 4623)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-20 10:56:19 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi47@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "andrey.almashi47@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 275ms (ActiveRecord: 0.3ms | Allocations: 2740)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 10:56:19 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1002)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 406)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2439)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.1ms | Allocations: 2699)
+
+
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 10:56:21 +0300
+Processing by AdminpanelController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/index.html.erb:1
+  Rendered adminpanel/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 979)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 399)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2405)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.1ms | Allocations: 2679)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 10:57:31 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 4216)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 759)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 6362)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.6ms | Allocations: 7205)
+
+
+Started GET "/adminpanel/" for 127.0.0.1 at 2023-04-20 10:57:35 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/adminpanel"):
+  
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 10:57:48 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1358)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 444)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 2918)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.1ms | Allocations: 4254)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:01:13 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/adminpanel/users"):
+  
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:02:34 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 4.2ms | Allocations: 4070)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 797)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 6257)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.8ms | Allocations: 7218)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 11:02:36 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 6ms (ActiveRecord: 0.2ms | Allocations: 2276)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:02:36 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 643)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1897)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 2556)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:02:39 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 583)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2226)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 3483)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 4613)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:02:41 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "andrey.almashi@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 277ms (ActiveRecord: 0.3ms | Allocations: 2728)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:02:41 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 957)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 376)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2365)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.1ms | Allocations: 2625)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 11:02:42 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 6ms (ActiveRecord: 0.2ms | Allocations: 1882)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:02:42 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 312)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 143)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 1494)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 1753)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:02:43 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 132)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1283)
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 2466)
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 3095)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:02:45 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "andrey.almashi@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 295ms (ActiveRecord: 0.2ms | Allocations: 2405)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:02:45 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 958)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 358)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 2356)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 2615)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:02:53 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2635)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 2722)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 2979)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<ActionDispatch::Request GET "http://0.0.0.0:3000/adminpanel/users" for 127.0.0.1>):
+    13:     </thead>
+    14:     <tbody>
+    15:     <% @users.each do |user| %>
+    16:       <% if request.user == current_user || current_user.admin %>
+    17:         <tr>
+    18:           <td><%= user.id %></td>
+    19:           <td><%= user.email %></td>
+  
+app/views/adminpanel/users.html.erb:16
+app/views/adminpanel/users.html.erb:15
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:03:54 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1921)
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 742)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4039)
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 0.1ms | Allocations: 4818)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNameToUsers (20230420081448)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "name" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230420081448"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 11:16:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 5ms (ActiveRecord: 0.3ms | Allocations: 4557)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:16:40 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 648)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2523)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 3363)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:16:41 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 235)
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 585)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3027)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4293)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 5475)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:16:54 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 225)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 517)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2786)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 529)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 4667)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 5828)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:17:38 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 583)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2210)
+  Rendered home/_header.html.erb (Duration: 1.6ms | Allocations: 532)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4088)
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 5352)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:17:39 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi47@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "andrey.almashi47@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 281ms (ActiveRecord: 1.1ms | Allocations: 2735)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:17:40 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1331)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 411)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 2847)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.1ms | Allocations: 3427)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2023-04-20 11:17:42 +0300
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 225)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2734)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 412)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4226)
+Completed 200 OK in 16ms (Views: 12.5ms | ActiveRecord: 0.2ms | Allocations: 6219)
+
+
+Started DELETE "/users" for 127.0.0.1 at 2023-04-20 11:17:43 +0300
+Processing by Devise::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 7ms (ActiveRecord: 1.7ms | Allocations: 4811)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:17:43 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 346)
+  Rendered home/_header.html.erb (Duration: 0.1ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1522)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 1783)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:17:45 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 132)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1283)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 2465)
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 3087)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:17:48 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 82)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1971)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 169)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3167)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 3766)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:18:13 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 225)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2636)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 2724)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 3873)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil, admin: false>):
+    13: 
+    14:       <div class="field form-group">
+    15:         <%= f.label :name %><br />
+    16:         <%= f.text_field :name, autocomplete: "name", class:"form-control",
+    17:                              placeholder:"Elon Tusk" %>
+    18:       </div>
+    19: 
+  
+app/views/devise/registrations/new.html.erb:16
+app/views/devise/registrations/new.html.erb:3
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:18:30 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 225)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 2425)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2513)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 3657)
+
+
+  
+ActionView::Template::Error (undefined method `name_field' for #<ActionView::Helpers::FormBuilder:0x0000000108a060f0 @nested_child_index={}, @options={:allow_method_names_outside_object=>false, :skip_default_ids=>false, :as=>:user, :html=>{:class=>"new_user", :id=>"new_user"}, :local=>true}, @template=#<ActionView::Base:0x000000000326e0>, @object=#<User id: nil, email: "", created_at: nil, updated_at: nil, admin: false>, @object_name=:user, @default_options={:skip_default_ids=>false, :allow_method_names_outside_object=>false}, @default_html_options={}, @multipart=nil, @index=nil>):
+    13: 
+    14:       <div class="field form-group">
+    15:         <%= f.label :name %><br />
+    16:         <%= f.name_field :name, autocomplete: "name", class:"form-control",
+    17:                              placeholder:"Elon Tusk" %>
+    18:       </div>
+    19: 
+  
+app/views/devise/registrations/new.html.erb:16
+app/views/devise/registrations/new.html.erb:3
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:19:11 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 225)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2465)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 2553)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 3695)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil, admin: false>):
+    13: 
+    14:       <div class="field form-group">
+    15:         <%= f.label :name %><br />
+    16:         <%= f.text_field :name, autocomplete: "name", class:"form-control",
+    17:                              placeholder:"Elon Tusk" %>
+    18:       </div>
+    19: 
+  
+app/views/devise/registrations/new.html.erb:16
+app/views/devise/registrations/new.html.erb:3
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:21:37 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 225)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2464)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 2552)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 3694)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil, admin: false>):
+    13: 
+    14:       <div class="field form-group">
+    15:         <%= f.label :name %><br />
+    16:         <%= f.email_field :name, autocomplete: "name", class:"form-control",
+    17:                              placeholder:"Elon Tusk" %>
+    18:       </div>
+    19: 
+  
+app/views/devise/registrations/new.html.erb:16
+app/views/devise/registrations/new.html.erb:3
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:22:14 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.5ms | Allocations: 225)
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 517)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 16.4ms | Allocations: 2785)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 529)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 4681)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.0ms | Allocations: 5846)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:22:28 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 225)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2464)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 2552)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 3661)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil, admin: false>):
+    13: 
+    14:       <div class="field form-group">
+    15:         <%= f.label :name %><br />
+    16:         <%= f.email_field :name, autocomplete: "name", class:"form-control",
+    17:                              placeholder:"Elon Tusk" %>
+    18:       </div>
+    19: 
+  
+app/views/devise/registrations/new.html.erb:16
+app/views/devise/registrations/new.html.erb:3
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNameToUsers (20230420081448)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "admin" boolean DEFAULT 0, "name" varchar DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","admin","name")
+                     SELECT "id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","admin","name" FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "admin" boolean DEFAULT 0)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","admin")
+                     SELECT "id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","admin" FROM "ausers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20230420081448"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:22:56 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 226)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 528)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2558)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 546)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 4474)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.0ms | Allocations: 7854)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-04-20 11:23:01 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi47@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "andrey.almashi47@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "admin") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "andrey.almashi47@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-04-20 08:23:02.091506"], ["updated_at", "2023-04-20 08:23:02.091506"], ["admin", 0]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 287ms (ActiveRecord: 2.3ms | Allocations: 7886)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:23:02 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1497)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 411)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 3007)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.1ms | Allocations: 3667)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 11:23:03 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 6ms (ActiveRecord: 0.2ms | Allocations: 2177)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:23:03 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 340)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1517)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 1776)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:23:04 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 156)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1723)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 2980)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 3981)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:23:05 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "andrey.almashi@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 288ms (ActiveRecord: 0.3ms | Allocations: 2573)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:23:06 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 952)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 358)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 2342)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 2602)
+
+
+Started GET "/adminpanel/index" for 127.0.0.1 at 2023-04-20 11:23:11 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/adminpanel/index"):
+  
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:23:15 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1903)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 403)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 3422)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.3ms | Allocations: 4102)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:24:34 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2814)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2902)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms | Allocations: 3666)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<ActionView::Base:0x00000000038ab8>):
+    17:           <td><%= user.id %></td>
+    18:           <td><%= user.email %></td>
+    19:           <td><%= user.admin %></td>
+    20:           <td><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete,
+    21:                         class:"btn btn-danger" %></td>
+    22:         </tr>
+    23:       <% end %>
+  
+app/views/adminpanel/users.html.erb:20
+app/views/adminpanel/users.html.erb:15
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:25:52 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 14.2ms | Allocations: 2808)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 2896)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.4ms | Allocations: 3652)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<ActionView::Base:0x00000000038dd8>):
+    17:           <td><%= user.id %></td>
+    18:           <td><%= user.email %></td>
+    19:           <td><%= user.admin %></td>
+    20:           <td><%= button_to "Cancel my account", user_registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete,
+    21:                         class:"btn btn-danger" %></td>
+    22:         </tr>
+    23:       <% end %>
+  
+app/views/adminpanel/users.html.erb:20
+app/views/adminpanel/users.html.erb:15
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:25:53 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2542)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2629)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.5ms | Allocations: 2878)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<ActionView::Base:0x000000000390d0>):
+    17:           <td><%= user.id %></td>
+    18:           <td><%= user.email %></td>
+    19:           <td><%= user.admin %></td>
+    20:           <td><%= button_to "Cancel my account", user_registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete,
+    21:                         class:"btn btn-danger" %></td>
+    22:         </tr>
+    23:       <% end %>
+  
+app/views/adminpanel/users.html.erb:20
+app/views/adminpanel/users.html.erb:15
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:30:40 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 4.6ms | Allocations: 5325)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 5413)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.7ms | Allocations: 6065)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<ActionView::Base:0x0000000003e378>):
+    17:           <td><%= user.id %></td>
+    18:           <td><%= user.email %></td>
+    19:           <td><%= user.admin %></td>
+    20:           <td><%= button_to "Cancel my account", user_registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete,
+    21:                         class:"btn btn-danger" %></td>
+    22:         </tr>
+    23:       <% end %>
+  
+app/views/adminpanel/users.html.erb:20
+app/views/adminpanel/users.html.erb:15
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:30:47 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1821)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 755)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 3967)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.1ms | Allocations: 4756)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Destroy (2.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 10]]
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:31:03 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1811)
+  Rendered home/_header.html.erb (Duration: 1.1ms | Allocations: 742)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 3914)
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.4ms | Allocations: 4693)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:35:24 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:6
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:2:in `delete_user'
+  [1m[36mUser Destroy (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/adminpanel/users.html.erb:3:in `delete_user'
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 12.0ms | Allocations: 4588)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 4676)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.1ms | Allocations: 5432)
+
+
+  
+ActionView::Template::Error (undefined method `users_path' for #<ActionView::Base:0x0000000003e800>):
+    23:           <td><%= user.email %></td>
+    24:           <td><%= user.admin %></td>
+    25:           <td>
+    26:             <%= button_to "Cancel my account", delete_user(user.id),
+    27:                         class:"btn btn-danger" %>
+    28:           </td>
+    29:         </tr>
+  
+app/views/adminpanel/users.html.erb:26
+app/views/adminpanel/users.html.erb:20
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:35:46 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:6
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2282)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2370)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms | Allocations: 3126)
+
+
+  
+ActionView::Template::Error (undefined method `admin?' for nil:NilClass):
+    3:   <% user.delete %>
+    4: <% end %>
+    5: 
+    6: <% if current_user.admin? %>
+    7:   <p id="notice"><%= notice %></p>
+    8: 
+    9:   <h1>Applications</h1>
+  
+app/views/adminpanel/users.html.erb:6
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:36:46 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1389)
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 501)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 3277)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.2ms | Allocations: 3937)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:36:47 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 226)
+  Rendered devise/shared/_links.html.erb (Duration: 2.5ms | Allocations: 528)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2541)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3808)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 4972)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-04-20 11:36:52 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "andrey.almashi@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "admin") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "andrey.almashi@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-04-20 08:36:52.825930"], ["updated_at", "2023-04-20 08:36:52.825930"], ["admin", 0]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 281ms (ActiveRecord: 1.8ms | Allocations: 6613)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:36:52 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1037)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 406)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2470)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 2730)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "admin" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-04-20 08:37:18.956056"], ["admin", 1], ["id", 12]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:37:21 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 981)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 358)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 2367)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.1ms | Allocations: 2626)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:37:27 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:2:in `delete_user'
+  [1m[36mUser Destroy (2.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 11]]
+  ↳ app/views/adminpanel/users.html.erb:3:in `delete_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:2:in `delete_user'
+  [1m[36mUser Destroy (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 12]]
+  ↳ app/views/adminpanel/users.html.erb:3:in `delete_user'
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 11.8ms | Allocations: 4737)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 372)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 6190)
+Completed 200 OK in 16ms (Views: 10.7ms | ActiveRecord: 4.1ms | Allocations: 6463)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:37:47 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:6
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2248)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 2336)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.2ms | Allocations: 3091)
+
+
+  
+ActionView::Template::Error (undefined method `admin?' for nil:NilClass):
+    3:   <% user.delete %>
+    4: <% end %>
+    5: 
+    6: <% if current_user.admin? %>
+    7:   <p id="notice"><%= notice %></p>
+    8: 
+    9:   <h1>Applications</h1>
+  
+app/views/adminpanel/users.html.erb:6
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users/edit" for 127.0.0.1 at 2023-04-20 11:39:53 +0300
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+Completed 401 Unauthorized in 20ms (ActiveRecord: 0.3ms | Allocations: 1376)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:39:53 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 583)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2221)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 532)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 4115)
+Completed 200 OK in 18ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 5556)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:39:54 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 225)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 90)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2010)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 181)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 3270)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 4153)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-04-20 11:39:58 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "andrey.almashi@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "admin") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "andrey.almashi@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-04-20 08:39:59.224799"], ["updated_at", "2023-04-20 08:39:59.224799"], ["admin", 0]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/users/edit
+Completed 303 See Other in 282ms (ActiveRecord: 1.3ms | Allocations: 6164)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2023-04-20 11:39:59 +0300
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 1.7ms | Allocations: 2337)
+  Rendered home/_header.html.erb (Duration: 0.1ms | Allocations: 400)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 3764)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 5480)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2023-04-20 11:40:02 +0300
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1794)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 386)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3207)
+Completed 200 OK in 10ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 4877)
+
+
+Started GET "/requests" for 127.0.0.1 at 2023-04-20 11:40:03 +0300
+Processing by RequestsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering requests/index.html.erb within layouts/application
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/requests/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  Rendered requests/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 8061)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 414)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 9575)
+Completed 200 OK in 18ms (Views: 14.3ms | ActiveRecord: 0.7ms | Allocations: 11016)
+
+
+Started GET "/requests" for 127.0.0.1 at 2023-04-20 11:43:08 +0300
+Processing by RequestsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering requests/index.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/requests/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  Rendered requests/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 3954)
+  Rendered home/_header.html.erb (Duration: 1.2ms | Allocations: 759)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 6072)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.4ms | Allocations: 6874)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "admin" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-04-20 08:43:29.341309"], ["admin", 1], ["id", 1]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/requests/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:43:37 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/requests/adminpanel/users"):
+  
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:43:46 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:2:in `delete_user'
+  [1m[36mUser Destroy (1.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/adminpanel/users.html.erb:3:in `delete_user'
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 7.5ms | Allocations: 4030)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 4118)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.4ms | Allocations: 4694)
+
+
+  
+ActionView::Template::Error (undefined method `users_path' for #<ActionView::Base:0x0000000003fa48>):
+    23:           <td><%= user.email %></td>
+    24:           <td><%= user.admin %></td>
+    25:           <td>
+    26:             <%= link_to "Ban", delete_user(user.id),
+    27:                         class:"btn btn-danger" %>
+    28:           </td>
+    29:         </tr>
+  
+app/views/adminpanel/users.html.erb:26
+app/views/adminpanel/users.html.erb:20
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:46:19 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 3.1ms | Allocations: 3096)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 3184)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.6ms | Allocations: 4162)
+
+
+  
+ActionView::Template::Error (undefined method `admin?' for nil:NilClass):
+    1: <% if current_user.admin? %>
+    2:   <p id="notice"><%= notice %></p>
+    3: 
+    4:   <h1>Applications</h1>
+  
+app/views/adminpanel/users.html.erb:1
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:46:25 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1373)
+  Rendered home/_header.html.erb (Duration: 0.9ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3259)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.1ms | Allocations: 3919)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:46:27 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 583)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2242)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 3500)
+Completed 200 OK in 16ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 6567)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:46:29 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "andrey.almashi@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.4ms | Allocations: 1603)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 132)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1284)
+  Rendered home/_header.html.erb (Duration: 0.1ms | Allocations: 134)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2437)
+Completed 200 OK in 272ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2964)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:46:31 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 225)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 101)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2041)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3307)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 4351)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-04-20 11:46:35 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "andrey.almashi@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "admin") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "andrey.almashi@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-04-20 08:46:35.354592"], ["updated_at", "2023-04-20 08:46:35.354592"], ["admin", 0]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 280ms (ActiveRecord: 1.3ms | Allocations: 6595)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:46:35 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1036)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 406)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2469)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.1ms | Allocations: 2729)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "admin" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-04-20 08:46:52.146404"], ["admin", 1], ["id", 1]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:46:53 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1280)
+  Rendered home/_header.html.erb (Duration: 1.0ms | Allocations: 740)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 3381)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.2ms | Allocations: 4141)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:46:59 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1999)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 375)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3473)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 4082)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:47:12 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1616)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 349)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 2992)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.4ms | Allocations: 3264)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 11:47:15 +0300
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 11:47:18 +0300
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:47:25 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 965)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 358)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2366)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.1ms | Allocations: 2627)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 11:47:26 +0300
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 11:48:05 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/users/" for 127.0.0.1 at 2023-04-20 11:48:08 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:48:12 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 9092)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 839)
+  Rendered layout layouts/application.html.erb (Duration: 68.1ms | Allocations: 31496)
+Completed 200 OK in 75ms (Views: 69.0ms | ActiveRecord: 0.8ms | Allocations: 33637)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 11:48:34 +0300
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 11:49:18 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 10ms (ActiveRecord: 0.6ms | Allocations: 7040)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:49:18 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 440)
+  Rendered home/_header.html.erb (Duration: 0.1ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1712)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 2237)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:49:20 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 711)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.6ms | Allocations: 3522)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 4779)
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.0ms | Allocations: 6079)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:49:23 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "andrey.almashi@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 281ms (ActiveRecord: 0.2ms | Allocations: 3478)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:49:24 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 979)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 376)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2387)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 2647)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 11:49:26 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 5ms (ActiveRecord: 0.2ms | Allocations: 1866)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:49:26 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 324)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 143)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1498)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 1757)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:49:27 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 132)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1283)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2465)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.0ms | Allocations: 3088)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:49:29 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi47@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "andrey.almashi47@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.1ms | Allocations: 1524)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi47@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 132)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1284)
+  Rendered home/_header.html.erb (Duration: 0.1ms | Allocations: 134)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2437)
+Completed 200 OK in 275ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 2995)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:49:31 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 234)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 158)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2205)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3471)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 4518)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-04-20 11:49:35 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi47@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "andrey.almashi47@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "admin") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "andrey.almashi47@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-04-20 08:49:35.613722"], ["updated_at", "2023-04-20 08:49:35.613722"], ["admin", 0]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 282ms (ActiveRecord: 1.7ms | Allocations: 7510)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:49:35 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1025)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 388)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 2440)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 2700)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-04-20 11:49:39 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 6ms (ActiveRecord: 0.2ms | Allocations: 1847)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:49:39 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 319)
+  Rendered home/_header.html.erb (Duration: 0.1ms | Allocations: 143)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1504)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms | Allocations: 1764)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:49:40 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 132)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1283)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 2467)
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 3064)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:49:42 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "andrey.almashi@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 279ms (ActiveRecord: 0.4ms | Allocations: 2389)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:49:42 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 965)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 358)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 2363)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 2622)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:49:48 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2914)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 3002)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 3671)
+
+
+  
+ActionView::Template::Error (undefined method `destroy_user_path' for #<ActionView::Base:0x00000000012958>):
+    18:           <td><%= user.email %></td>
+    19:           <td><%= user.admin %></td>
+    20:           <td>
+    21:             <%= link_to "Ban", destroy_user_path(user), method: :delete,
+    22:                         data: { confirm: "Are you sure you want to delete this user?" },
+    23:                         class: "btn btn-danger" %>
+    24:           </td>
+  
+app/views/adminpanel/users.html.erb:21
+app/views/adminpanel/users.html.erb:15
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:49:52 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 3.1ms | Allocations: 4602)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 377)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 6089)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.4ms | Allocations: 6768)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2023-04-20 11:49:54 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/2"):
+  
+Started GET "/users/2" for 127.0.0.1 at 2023-04-20 11:50:09 +0300
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:4:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/users/2" for 127.0.0.1 at 2023-04-20 11:51:01 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/2"):
+  
+Started GET "/users/" for 127.0.0.1 at 2023-04-20 11:51:05 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:51:18 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 8.3ms | Allocations: 4626)
+  Rendered home/_header.html.erb (Duration: 1.6ms | Allocations: 755)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 6768)
+Completed 200 OK in 17ms (Views: 14.9ms | ActiveRecord: 1.1ms | Allocations: 7730)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:52:26 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1935)
+  Rendered home/_header.html.erb (Duration: 1.4ms | Allocations: 718)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 4012)
+Completed 200 OK in 21ms (Views: 16.8ms | ActiveRecord: 0.3ms | Allocations: 4793)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2023-04-20 11:52:33 +0300
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 226)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2768)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 374)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4225)
+Completed 200 OK in 12ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 6478)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2023-04-20 11:52:45 +0300
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 225)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2668)
+  Rendered home/_header.html.erb (Duration: 1.0ms | Allocations: 719)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4740)
+Completed 200 OK in 26ms (Views: 15.9ms | ActiveRecord: 0.4ms | Allocations: 6980)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:56:26 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 4.1ms | Allocations: 4795)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 6285)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.6ms | Allocations: 7109)
+
+
+Started GET "/users/edit.2" for 127.0.0.1 at 2023-04-20 11:56:28 +0300
+Processing by Devise::RegistrationsController#edit as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1909)
+  Rendered home/_header.html.erb (Duration: 1.1ms | Allocations: 374)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3366)
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.1ms | Allocations: 5456)
+
+
+Started GET "/users/edit.1" for 127.0.0.1 at 2023-04-20 11:56:41 +0300
+Processing by Devise::RegistrationsController#edit as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1794)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 348)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3169)
+Completed 200 OK in 10ms (Views: 5.4ms | ActiveRecord: 0.2ms | Allocations: 4809)
+
+
+Started GET "/users/edit.2" for 127.0.0.1 at 2023-04-20 11:56:47 +0300
+Processing by Devise::RegistrationsController#edit as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1794)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 348)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3169)
+Completed 200 OK in 11ms (Views: 7.2ms | ActiveRecord: 0.2ms | Allocations: 4824)
+
+
+Started DELETE "/users" for 127.0.0.1 at 2023-04-20 11:56:52 +0300
+Processing by Devise::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 13ms (ActiveRecord: 3.5ms | Allocations: 4857)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:56:52 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 685)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1939)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 2598)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:56:55 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 583)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2220)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3478)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-20 11:56:57 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "andrey.almashi@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.2ms | Allocations: 1606)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 132)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1279)
+  Rendered home/_header.html.erb (Duration: 0.1ms | Allocations: 134)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2432)
+Completed 200 OK in 268ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2958)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-04-20 11:56:59 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 93)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1689)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 2885)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 3480)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-04-20 11:57:04 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"andrey.almashi@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "andrey.almashi@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "admin") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "andrey.almashi@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-04-20 08:57:04.375258"], ["updated_at", "2023-04-20 08:57:04.375258"], ["admin", 0]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 285ms (ActiveRecord: 1.4ms | Allocations: 6497)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 11:57:04 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1012)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 406)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 2456)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 2716)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "admin" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-04-20 08:58:23.052715"], ["admin", 1], ["id", 3]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:58:29 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1968)
+  Rendered home/_header.html.erb (Duration: 1.4ms | Allocations: 721)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 4057)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.2ms | Allocations: 4837)
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at 2023-04-20 11:58:31 +0300
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+Started GET "/users/2/edit" for 127.0.0.1 at 2023-04-20 11:59:01 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/edit"):
+  
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:59:05 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:15
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 9.5ms | Allocations: 4619)
+  Rendered home/_header.html.erb (Duration: 1.7ms | Allocations: 755)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 6761)
+Completed 200 OK in 21ms (Views: 18.9ms | ActiveRecord: 1.1ms | Allocations: 7723)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 11:59:18 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1814)
+  Rendered home/_header.html.erb (Duration: 1.2ms | Allocations: 742)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 3917)
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.3ms | Allocations: 4697)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:03:17 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1801)
+  Rendered home/_header.html.erb (Duration: 1.1ms | Allocations: 756)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 3918)
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.3ms | Allocations: 4697)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:03:37 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1810)
+  Rendered home/_header.html.erb (Duration: 1.3ms | Allocations: 756)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 3927)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.3ms | Allocations: 4706)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:07:38 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 23.3ms | Allocations: 1813)
+  Rendered home/_header.html.erb (Duration: 2.4ms | Allocations: 881)
+  Rendered layout layouts/application.html.erb (Duration: 38.4ms | Allocations: 4055)
+Completed 200 OK in 59ms (Views: 53.5ms | ActiveRecord: 0.9ms | Allocations: 4834)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:08:01 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 20.2ms | Allocations: 1810)
+  Rendered home/_header.html.erb (Duration: 1.4ms | Allocations: 854)
+  Rendered layout layouts/application.html.erb (Duration: 38.5ms | Allocations: 4028)
+Completed 200 OK in 46ms (Views: 42.3ms | ActiveRecord: 0.6ms | Allocations: 4807)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:08:40 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1820)
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 877)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 4060)
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 0.5ms | Allocations: 4839)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:09:24 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1804)
+  Rendered home/_header.html.erb (Duration: 1.8ms | Allocations: 846)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 4013)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 0.6ms | Allocations: 4792)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:10:04 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 25.6ms | Allocations: 1807)
+  Rendered home/_header.html.erb (Duration: 1.4ms | Allocations: 874)
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 4042)
+Completed 200 OK in 34ms (Views: 31.3ms | ActiveRecord: 1.0ms | Allocations: 4821)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:10:35 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 7.9ms | Allocations: 7672)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 427)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 9128)
+Completed 200 OK in 30ms (Views: 9.3ms | ActiveRecord: 0.7ms | Allocations: 19361)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:10:49 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2789)
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 845)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4989)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.3ms | Allocations: 5767)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:13:10 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 13.3ms | Allocations: 1804)
+  Rendered home/_header.html.erb (Duration: 2.2ms | Allocations: 436)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | Allocations: 3268)
+Completed 200 OK in 27ms (Views: 23.5ms | ActiveRecord: 0.7ms | Allocations: 3596)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:13:15 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2421)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 427)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 3875)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.2ms | Allocations: 4146)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:13:16 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1544)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 436)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 3008)
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.6ms | Allocations: 3279)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:13:18 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 12.8ms | Allocations: 1544)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 436)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 3019)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.2ms | Allocations: 3290)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:13:19 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2418)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 427)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3883)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.3ms | Allocations: 4154)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:13:21 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1547)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 436)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3011)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.3ms | Allocations: 3282)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:13:22 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1556)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 436)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3020)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.5ms | Allocations: 3291)
+
+
+Started GET "/requests" for 127.0.0.1 at 2023-04-20 12:13:23 +0300
+Processing by RequestsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering requests/index.html.erb within layouts/application
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/requests/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  Rendered requests/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 7299)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 450)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 8834)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.4ms | Allocations: 9620)
+
+
+Started GET "/requests" for 127.0.0.1 at 2023-04-20 12:14:22 +0300
+Processing by RequestsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering requests/index.html.erb within layouts/application
+  [1m[36mRequest Load (1.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/requests/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/requests/index.html.erb:17
+  Rendered requests/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 4801)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 522)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 6679)
+Completed 200 OK in 23ms (Views: 18.1ms | ActiveRecord: 1.3ms | Allocations: 7481)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 12:14:30 +0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 1753)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 12:14:30 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1273)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 2539)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.1ms | Allocations: 3198)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 12:14:31 +0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 1567)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 12:14:31 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 976)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2147)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.1ms | Allocations: 2407)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-20 12:14:31 +0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 1565)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 12:14:31 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 987)
+  Rendered home/_header.html.erb (Duration: 0.1ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 2156)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.1ms | Allocations: 2415)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-20 12:14:47 +0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:8
+  Rendered home/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1280)
+  Rendered home/_header.html.erb (Duration: 1.3ms | Allocations: 824)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 3465)
+Completed 200 OK in 27ms (Views: 22.2ms | ActiveRecord: 0.5ms | Allocations: 4226)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:14:50 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2816)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 408)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4306)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.2ms | Allocations: 4904)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:14:55 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1795)
+  Rendered home/_header.html.erb (Duration: 1.0ms | Allocations: 398)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 3221)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.4ms | Allocations: 3549)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:14:57 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1577)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 398)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3003)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.2ms | Allocations: 3274)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:15:01 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2418)
+  Rendered home/_header.html.erb (Duration: 1.1ms | Allocations: 389)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 3834)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.4ms | Allocations: 4105)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:15:03 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1562)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 398)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 2989)
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.7ms | Allocations: 3260)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:15:05 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2415)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 389)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3831)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.3ms | Allocations: 4102)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:16:40 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 11.6ms | Allocations: 1786)
+  Rendered home/_header.html.erb (Duration: 1.8ms | Allocations: 824)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 3971)
+Completed 200 OK in 36ms (Views: 25.8ms | ActiveRecord: 0.6ms | Allocations: 4749)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:16:44 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 7.5ms | Allocations: 4045)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 389)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 5472)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.2ms | Allocations: 5801)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:17:25 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3433)
+  Rendered home/_header.html.erb (Duration: 2.2ms | Allocations: 795)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 5591)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.4ms | Allocations: 6370)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:17:41 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 23.3ms | Allocations: 16673)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 16761)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.3ms | Allocations: 17526)
+
+
+  
+ActionView::Template::Error (WebConsole::DoubleRenderError):
+    22:           <td><%= request.description %></td>
+    23:           <td><%= request.reaction %></td>
+    24:           <td><%= button_to  %></td>
+    25:           <td><% console %>><td>
+    26:           <td><%= button_to 'Delete', request, method: :delete, class:"btn btn-outline-danger" %></td>
+    27:         </tr>
+    28:       <% end %>
+  
+app/views/adminpanel/requests.html.erb:25
+app/views/adminpanel/requests.html.erb:17
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:17:49 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 9.6ms | Allocations: 4474)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4562)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.7ms | Allocations: 5319)
+
+
+  
+ActionView::Template::Error (WebConsole::DoubleRenderError):
+    22:           <td><%= request.description %></td>
+    23:           <td><%= request.reaction %></td>
+    24:           <td><%= button_to  %></td>
+    25:           <td><% console %><td>
+    26:           <td><%= button_to 'Delete', request, method: :delete, class:"btn btn-outline-danger" %></td>
+    27:         </tr>
+    28:       <% end %>
+  
+app/views/adminpanel/requests.html.erb:25
+app/views/adminpanel/requests.html.erb:17
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:19:33 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3475)
+  Rendered home/_header.html.erb (Duration: 1.1ms | Allocations: 795)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 5636)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.5ms | Allocations: 6415)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:20:05 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3478)
+  Rendered home/_header.html.erb (Duration: 0.9ms | Allocations: 796)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 5629)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.4ms | Allocations: 6408)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:20:06 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3042)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 389)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4458)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 1.1ms | Allocations: 4730)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:20:06 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 4.0ms | Allocations: 3066)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 389)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 4482)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.2ms | Allocations: 4753)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:20:06 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 6.6ms | Allocations: 3045)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 389)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4461)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.4ms | Allocations: 4732)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:20:06 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3045)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 389)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 4461)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.3ms | Allocations: 4732)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:20:07 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3054)
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 389)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4470)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 4741)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:20:07 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 4.6ms | Allocations: 3072)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 389)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 4488)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 4759)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:21:15 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 18.9ms | Allocations: 2936)
+  Rendered home/_header.html.erb (Duration: 1.2ms | Allocations: 795)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 5086)
+Completed 200 OK in 43ms (Views: 34.6ms | ActiveRecord: 0.8ms | Allocations: 5864)
+
+
+Started GET "/requests/1" for 127.0.0.1 at 2023-04-20 12:21:16 +0300
+Processing by RequestsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:73:in `set_request'
+  Rendering layout layouts/application.html.erb
+  Rendering requests/show.html.erb within layouts/application
+  Rendered requests/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 885)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.erb:10
+  Rendered home/_header.html.erb (Duration: 12.2ms | Allocations: 1195)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 3154)
+Completed 200 OK in 26ms (Views: 19.2ms | ActiveRecord: 0.7ms | Allocations: 4924)
+
+
+Started GET "/requests/1" for 127.0.0.1 at 2023-04-20 12:22:00 +0300
+Processing by RequestsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:73:in `set_request'
+  Rendering layout layouts/application.html.erb
+  Rendering requests/show.html.erb within layouts/application
+  Rendered requests/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 854)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.erb:10
+  Rendered home/_header.html.erb (Duration: 2.1ms | Allocations: 1582)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3790)
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 0.4ms | Allocations: 5085)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:22:02 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3064)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3152)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms | Allocations: 3730)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"requests", :id=>nil}, missing required keys: [:id]):
+    21:           <td><%= request.phone %></td>
+    22:           <td><%= request.description %></td>
+    23:           <td><%= request.reaction %></td>
+    24:           <td><%= link_to "Edit this application", edit_request_path(@request), class:"btn btn-outline-warning"%></td>
+    25: 
+    26:           <td><%= button_to 'Delete', request, method: :delete, class:"btn btn-outline-danger" %></td>
+    27:         </tr>
+  
+app/views/adminpanel/requests.html.erb:24
+app/views/adminpanel/requests.html.erb:17
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:22:04 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2666)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2753)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 3002)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"requests", :id=>nil}, missing required keys: [:id]):
+    21:           <td><%= request.phone %></td>
+    22:           <td><%= request.description %></td>
+    23:           <td><%= request.reaction %></td>
+    24:           <td><%= link_to "Edit this application", edit_request_path(@request), class:"btn btn-outline-warning"%></td>
+    25: 
+    26:           <td><%= button_to 'Delete', request, method: :delete, class:"btn btn-outline-danger" %></td>
+    27:         </tr>
+  
+app/views/adminpanel/requests.html.erb:24
+app/views/adminpanel/requests.html.erb:17
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:22:14 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2941)
+  Rendered home/_header.html.erb (Duration: 1.1ms | Allocations: 795)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 5102)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.4ms | Allocations: 5880)
+
+
+Started GET "/requests/1/edit" for 127.0.0.1 at 2023-04-20 12:22:16 +0300
+Processing by RequestsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:73:in `set_request'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Request Load (0.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:63:in `correct_user'
+  Rendering layout layouts/application.html.erb
+  Rendering requests/edit.html.erb within layouts/application
+  Rendered requests/_form.html.erb (Duration: 24.2ms | Allocations: 16884)
+  Rendered requests/edit.html.erb within layouts/application (Duration: 25.4ms | Allocations: 17281)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 409)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 18762)
+Completed 200 OK in 37ms (Views: 29.3ms | ActiveRecord: 0.3ms | Allocations: 21663)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:22:34 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2935)
+  Rendered home/_header.html.erb (Duration: 1.2ms | Allocations: 795)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 5085)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.6ms | Allocations: 5864)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:23:40 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 8.1ms | Allocations: 3082)
+  Rendered home/_header.html.erb (Duration: 1.5ms | Allocations: 795)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 5232)
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.5ms | Allocations: 6011)
+
+
+Started GET "/requests/2/edit" for 127.0.0.1 at 2023-04-20 12:23:43 +0300
+Processing by RequestsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:73:in `set_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Request Load (0.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:63:in `correct_user'
+  Rendering layout layouts/application.html.erb
+  Rendering requests/edit.html.erb within layouts/application
+  Rendered requests/_form.html.erb (Duration: 5.1ms | Allocations: 2733)
+  Rendered requests/edit.html.erb within layouts/application (Duration: 6.7ms | Allocations: 3123)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 409)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4604)
+Completed 200 OK in 18ms (Views: 11.5ms | ActiveRecord: 0.3ms | Allocations: 7486)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:24:02 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 3.4ms | Allocations: 3083)
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 795)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 5233)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.3ms | Allocations: 6012)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:24:28 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (23.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 36.1ms | Allocations: 3091)
+  Rendered home/_header.html.erb (Duration: 1.1ms | Allocations: 796)
+  Rendered layout layouts/application.html.erb (Duration: 42.9ms | Allocations: 5256)
+Completed 200 OK in 48ms (Views: 22.6ms | ActiveRecord: 23.8ms | Allocations: 6035)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:25:01 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 6.8ms | Allocations: 3089)
+  Rendered home/_header.html.erb (Duration: 2.3ms | Allocations: 795)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 5247)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.4ms | Allocations: 6026)
+
+
+Started GET "/adminpanel/requests" for 127.0.0.1 at 2023-04-20 12:25:11 +0300
+Processing by AdminpanelController#requests as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/requests.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/requests.html.erb:1
+  [1m[36mRequest Load (0.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/adminpanel/requests.html.erb:17
+  Rendered adminpanel/requests.html.erb within layouts/application (Duration: 2.4ms | Allocations: 3097)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 795)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 5249)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.3ms | Allocations: 6028)
+
+
+Started GET "/adminpanel/users" for 127.0.0.1 at 2023-04-20 12:26:15 +0300
+Processing by AdminpanelController#users as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering adminpanel/users.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/adminpanel/users.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/adminpanel/users.html.erb:14
+  Rendered adminpanel/users.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1804)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 398)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3231)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.4ms | Allocations: 3559)
+
+

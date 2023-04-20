@@ -8,11 +8,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Applications", requests_path, class: "btn btn-light" %>|
-        </li>
-
         <% unless current_user.admin %>
+          <li class="nav-item active">
+            <%= link_to "Applications", requests_path, class: "btn btn-light" %>|
+          </li>
           <li class="nav-item active">
             <%= link_to "Create application", new_request_path, class: "btn btn-light" %>|
           </li>
@@ -20,6 +19,18 @@
 
         <li class="nav-item active">
           <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-light" %>|
+        </li>
+
+        <li class="nav-item active">
+          <div class="dropdown">
+            <button class="btn btn-light" type="button" data-toggle="dropdown" aria-expanded="false">
+              Admin Panel
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#"><%= link_to "Applications", adminpanel_requests_path, class:"btn btn-light" %></a>
+              <a class="dropdown-item" href="#"><%= link_to "Users", adminpanel_users_path, class:"btn btn-light" %></a>
+            </div>
+          </div>
         </li>
 
         <li class="nav-item active">

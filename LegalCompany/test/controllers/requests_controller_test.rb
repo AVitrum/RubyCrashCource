@@ -5,7 +5,7 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
     @request = requests(:one)
   end
 
-  test "should get index" do
+  test "should get requests" do
     get requests_url
     assert_response :success
   end
