@@ -5,6 +5,11 @@ class AdminpanelController < ApplicationController
   end
   def users
     @users = User.all
+    console
+  end
+
+  def add_reaction
+
   end
 
 end
