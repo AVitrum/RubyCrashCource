@@ -10,6 +10,7 @@
       <th>Phone</th>
       <th>Description</th>
       <th>Reaction</th>
+      <th>User_id</th>
       <th></th>
     </tr>
     </thead>
@@ -22,6 +23,7 @@
           <td><%= request.phone %></td>
           <td><%= request.description %></td>
           <td><%= request.reaction %></td>
+          <td><%= request.user_id %></td>
           <td><%= button_to "Add reaction", edit_request_path(request), method: :get,
                             class:"btn btn-outline-warning"%></td>
           <td><%= button_to 'Delete', request, method: :delete, class:"btn btn-outline-danger" %></td>
