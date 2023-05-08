@@ -1,0 +1,44 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome to the website of our Legal Company</h1>
+    <p class="lead">Here you can get help from qualified specialists.
+      All you need is to sign up on our website and leave an application</p>
+  </div>
+</div>
+<% unless user_signed_in? && current_user.admin %>
+    <div class="row">
+    <% unless user_signed_in? %>
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Quick registration</h5>
+            <p class="card-text">If you don't know where to start registration or if you have an account, click on the link below</p>
+            <a href="#" class="card-link"><%= link_to "Sign Up", new_user_registration_path%></a> |
+            <%= link_to "Sign in", new_user_session_path%>
+        </div>
+        </div>
+    </div>
+    <% else %>
+        <div class="col-4">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Quick creation of application</h5>
+            <p class="card-text">If you do not know where to create an application, click on this link</p>
+            <a href="#" class="card-link"><%= link_to "Create request", new_request_path%></a>
+        </div>
+        </div>
+        </div>
+    <% end %>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Our contact details</h5>
+            <p class="card-text">Email: legalcompany@gmail.com</p>
+            <p class="card-text">Phone: 095 324 4567</p>
+        </div>
+        </div>
+    </div>
+</div>
+<% else %>
+
+<% end %>

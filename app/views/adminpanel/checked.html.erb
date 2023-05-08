@@ -1,0 +1,36 @@
+<% if current_user.admin? %>
+  <p id="notice"><%= notice %></p>
+
+  <h1>Applications</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Description</th>
+      <th>Reaction</th>
+      <th>User_id</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @requests.each do |request| %>
+      <% if request.checked %>
+        <tr>
+          <td><%= link_to request.first_name + ' ' + request.last_name, request %></td>
+          <td><%= request.email %></td>
+          <td><%= request.phone %></td>
+          <td><%= request.description %></td>
+          <td><%= request.reaction %></td>
+          <td><%= request.user_id %></td>
+          <td><%= button_to "Change reaction", edit_request_path(request), method: :get,
+                            class:"btn btn-outline-warning"%></td>
+          <td><%= button_to 'Delete', request, method: :delete, class:"btn btn-outline-danger" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+  <br>
+<% end %>

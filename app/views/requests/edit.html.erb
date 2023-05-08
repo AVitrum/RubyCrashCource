@@ -1,0 +1,10 @@
+<h1>Editing application</h1>
+
+<%= render "form", request: @request %>
+
+<br>
+
+<div>
+  <%= link_to "Show this application", @request, class:"btn btn-info" %>
+  <%= link_to "Back to applications", requests_path, class:"btn btn-secondary" %>
+</div>
